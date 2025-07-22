@@ -1,0 +1,27 @@
+<div class="backdrop" (click)="closeModal()"></div>
+
+<div class="modal">
+  <h2 class="text-xl font-bold mb-4">Edit Card</h2>
+  <form (ngSubmit)="saveCard()" #editForm="ngForm">
+    <label class="block mb-2">Title:</label>
+    <input
+      class="w-full p-2 border rounded mb-4"
+      [(ngModel)]="card.title"
+      name="title"
+      required
+    />
+
+    <label class="block mb-2">Description:</label>
+    <textarea
+      class="w-full p-2 border rounded mb-4"
+      [(ngModel)]="card.description"
+      name="description"
+      required
+    ></textarea>
+
+    <div class="flex justify-end gap-2">
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
+      <button type="button" (click)="closeModal()" class="bg-gray-300 px-4 py-2 rounded">Cancel</button>
+    </div>
+  </form>
+</div>
