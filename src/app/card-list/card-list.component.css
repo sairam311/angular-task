@@ -1,77 +1,126 @@
-/* card-list.component.css */
+/* Container */
+:host {
+  display: block;
+  min-width: 180vh;
+  min-height: 70vh;
+  padding: 2rem 0;
+}
 
-/* Card Grid */
-.card-container {
+/* Grid for cards */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  background-color: #f9fafb;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 1.5rem;
 }
 
-/* Card */
-.card {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
-  border: 1px solid #e5e7eb;
+/* Card styling */
+.bg-white {
   position: relative;
+  background: #fff;
+  border-radius: 1.3rem;
+  box-shadow: 0 4px 18px 0 rgba(49,49,98,0.07), 0 1.5px 8px 0 rgba(80,51,143,0.11);
+  padding: 1.5rem 1.3rem 1.3rem 1.3rem;
+  border: 1px solid #ede9fe;
+  transition: 
+    box-shadow 0.23s cubic-bezier(.42,0,.58,1.0), 
+    transform 0.23s cubic-bezier(.42,0,.58,1.0),
+    border 0.2s;
+}
+.bg-white:hover {
+  box-shadow: 0 12px 32px 0 rgba(79,70,229,0.13),
+              0 3px 10px 0 rgba(67,56,202,0.09);
+  transform: translateY(-8px) scale(1.03);
+  border-color: #c7d2fe;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
+.font-semibold {
+  font-size: 1.15rem !important;
+  color: #3b2f64 !important;
+  letter-spacing: 1px;
+  line-height: 1.38;
+  margin-bottom: 0.15rem;
+}
+.text-gray-600 {
+  font-size: .99rem;
+  color: #585e74 !important;
+  margin-top: 0.15rem;
 }
 
-/* Title */
-.card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 0.5rem;
-}
-
-/* Description */
-.card p {
-  font-size: 0.95rem;
-  color: #475569;
-}
-
-/* Button Container */
-.actions {
-  margin-top: 1rem;
+/* Action buttons */
+.mt-4.flex {
+  margin-top: 1.5rem;
   display: flex;
-  justify-content: flex-start;
-  gap: 0.75rem;
+  justify-content: flex-end;
+  gap: 0.6rem;
 }
 
-/* Buttons */
-.card button {
-  padding: 0.4rem 1rem;
-  font-size: 0.875rem;
-  border-radius: 0.5rem;
+.text-blue-600,
+.text-red-600 {
+  font-weight: 600;
+  font-size: 0.97rem;
   border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  padding: 0.33rem 1rem;
+  border-radius: 0.43rem;
+  outline: none;
+  box-shadow: none;
+  transition: 
+    color 0.16s,
+    background 0.23s,
+    box-shadow 0.21s;
 }
 
-.edit-btn {
-  background-color: #3b82f6;
-  color: #ffffff;
+/* Edit Button */
+.text-blue-600 {
+  color: #fff !important;
+  background: linear-gradient(93deg, #6366f1 60%, #7c3aed 140%);
+  box-shadow: 0 1px 8px rgba(124,58,237,0.08);
+}
+.text-blue-600:hover {
+  background: linear-gradient(92deg, #4f46e5 10%, #1e40af 100%);
+  color: #e0eaff !important;
 }
 
-.edit-btn:hover {
-  background-color: #2563eb;
+/* Delete Button */
+.text-red-600 {
+  color: #fff !important;
+  background: linear-gradient(90deg,#ef4444 60%,#f59e42 140%);
+  box-shadow: 0 1px 8px rgba(239,68,68,0.09);
+}
+.text-red-600:hover {
+  background: linear-gradient(91deg,#dc2626 30%,#fbbf24 110%);
+  color: #fff2ee !important;
 }
 
-.delete-btn {
-  background-color: #ef4444;
-  color: #ffffff;
+/* Add Card button at top */
+.bg-blue-600 {
+  background: linear-gradient(91deg,#6366f1 15%,#475569 98%);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 1.04rem;
+  border-radius: .56rem;
+  transition: background 0.18s;
+}
+.bg-blue-600:hover {
+  background: linear-gradient(87deg,#374151 9%,#1e293b 100%);
 }
 
-.delete-btn:hover {
-  background-color: #dc2626;
+/* (Optional) Responsive improvement for small screens */
+@media (max-width: 640px) {
+  .bg-white {
+    padding: 1.2rem 0.8rem;
+  }
+  .font-semibold {
+    font-size: 1rem !important;
+  }
+  .text-gray-600 {
+    font-size: 0.92rem !important;
+  }
 }
+
+/* Remove ugly blue input highlight from buttons */
+button:focus-visible {
+  outline: 2px solid #c7d2fe;
+  outline-offset: 2px;
+}
+
+/* Better border and background for cards when dark mode can be added if desired */
